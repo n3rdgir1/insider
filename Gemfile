@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+gem 'devise', '~> 3.2'
 # Use unicorn as the app server
 # gem 'unicorn'
 
