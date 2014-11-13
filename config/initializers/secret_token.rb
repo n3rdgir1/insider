@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Insider::Application.config.secret_key_base = '8a6a8eb1851107f6de2aaf3971c5b3bd045943075099d2f5dea07af935867739f161776297aeeb646d5927899559baca73d4fb13df02269d361342e29d5cbc21'
+Insider::Application.config.secret_key_base = ENV['SESSION_SECRET']

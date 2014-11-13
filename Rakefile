@@ -5,4 +5,4 @@ require File.expand_path('../config/application', __FILE__)
 
 Insider::Application.load_tasks
 
-task :default => ['cucumber']
+task :default => ['cucumber', 'brakeman:run']
