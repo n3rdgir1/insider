@@ -4,3 +4,5 @@ rvm:
   - 2.1.0
 before_install:
   - mysql -e "create insider_test IF NOT EXISTS test;" -uroot
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate
