@@ -6,4 +6,9 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
+    .header
+      - if current_user
+        Welcome #{current_user.email}
+        = link_to "Sign out", destroy_user_session_path, method: 'delete'
+
     = yield
