@@ -9,6 +9,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '~> 3.2'
+
+gem 'haml'
 # Use unicorn as the app server
 # gem 'unicorn'
 

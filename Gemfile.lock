@@ -219,6 +219,7 @@ DEPENDENCIES
   database_cleaner
   debugger
   devise (~> 3.2)
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   launchy
