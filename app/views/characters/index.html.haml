@@ -1,0 +1,12 @@
+%h2
+  My Characters
+
+= form_for character do |f|
+
+  %div
+    = f.label :character_sheet, "Upload a new character"
+    = f.file_field :character_sheet
+
+  %div
+    = f.submit
+

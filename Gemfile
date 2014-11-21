@@ -9,6 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise', '~> 3.2'
+gem 'decent_exposure'
 
 gem 'haml'
 # Use unicorn as the app server
@@ -17,14 +18,8 @@ gem 'haml'
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-gem 'rspec'
-gem 'rspec-rails'
-
-group :development do
-  gem 'cucumber'
-end
-
 group :development, :test, :cucumber do
+  gem 'cucumber'
   gem 'debugger'
   gem 'brakeman', :require => false
   gem 'cucumber-rails', :require => false
@@ -33,4 +28,9 @@ group :development, :test, :cucumber do
   gem 'capybara-webkit', '0.12.1'
   gem 'capybara-screenshot'
   gem 'launchy'
+  gem 'rspec'
+  gem 'rspec-rails'
+
+  gem 'guard'
+  gem 'guard-rspec'
 end

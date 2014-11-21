@@ -3,7 +3,7 @@ When(/^I go to my characters$/) do
 end
 
 When(/^I upload my chacter sheet$/) do
-  attach_file(:file, File.join(RAILS_ROOT, 'fixtures', 'shara.dnd4e'))
+  attach_file(:file, File.join(File.dirname(__FILE__), '../', '../' 'fixtures', 'shara.dnd4e'))
   click_button "Upload character"
 end
 
