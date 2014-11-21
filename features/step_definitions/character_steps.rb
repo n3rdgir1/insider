@@ -12,7 +12,7 @@ Then(/^I see that it was a success$/) do
 end
 
 When(/^I upload something that is not a character sheet$/) do
-  attach_file(:file, File.dirname(__FILE__))
+  attach_file(:file, File.join(File.dirname(__FILE__), '../', 'support', 'env.rb'))
   click_button "Upload character"
 end
 
