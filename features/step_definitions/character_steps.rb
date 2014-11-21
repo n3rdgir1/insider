@@ -10,7 +10,7 @@ When(/^I upload my chacter sheet$/) do
 end
 
 Then(/^I see that it was a success$/) do
-  page.should have_content "Successfully uploaded character"
+  page.should have_content "Successfully uploaded Shara"
 end
 
 When(/^I upload something that is not a character sheet$/) do

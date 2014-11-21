@@ -4,14 +4,14 @@ require 'tempfile'
 describe CharacterUploader do
   describe 'creating a character with a valid file' do
     let(:character_sheet) { File.open(File.join(File.dirname(__FILE__), '../', '../', 'fixtures', 'shara.dnd4e')) }
-    let(:character) { { name: 'Shara' } }
+    let(:character) { double name: 'Shara' }
 
     before do
       Character.stub(:create).and_return(character)
     end
 
     it 'returns a success message' do
-      described_class.create(character_sheet).should == 'Successfully uploaded character'
+      described_class.create(character_sheet).should == "Successfully uploaded #{character.name}"
     end
 
     it 'creates a chacter with a name' do
