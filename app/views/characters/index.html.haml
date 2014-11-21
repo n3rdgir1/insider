@@ -1,7 +1,7 @@
 %h2
   My Characters
 
-= form_for character do |f|
+= form_for 'character', html: { multipart: true } do |f|
 
   %div
     = f.label :character_sheet, "Upload a new character"
