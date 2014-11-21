@@ -7,7 +7,7 @@ class CharactersController < ApplicationController
   expose(:character)
 
   def create
-    CharacterUploader.create(character_params[:character_sheet])
+    flash[:notice] = CharacterUploader.create(character_params[:character_sheet])
     render :index
   end
 

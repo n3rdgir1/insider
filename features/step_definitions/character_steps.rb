@@ -1,3 +1,5 @@
+require 'tempfile'
+
 When(/^I go to my characters$/) do
   click_link "My Characters"
 end
@@ -17,5 +19,5 @@ When(/^I upload something that is not a character sheet$/) do
 end
 
 Then(/^I see that is not the correct file type$/) do
-  page.should have_content "Please upload a .dnd4e file"
+  page.should have_content "Please upload a valid .xml or .dnd4e file"
 end
