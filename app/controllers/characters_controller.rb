@@ -7,6 +7,12 @@ class CharactersController < ApplicationController
   expose(:character)
 
   def create
-    CharacterUploader.create(params[:character][:character_sheet])
+    CharacterUploader.create(character_params[:character_sheet])
+    render :index
   end
+
+  private
+    def character_params
+      params.require(:character).permit(:character_sheet)
+    end
 end

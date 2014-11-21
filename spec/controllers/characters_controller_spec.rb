@@ -1,10 +1,11 @@
 require_relative '../../app/controllers/characters_controller'
 
 describe CharactersController do
-  let(:params) { {} }
+  let(:params) { { character: character } }
+  let(:character) { {} }
 
   before do
-    subject.stub(params: params)
+    subject.stub(params: params, character_params: character )
   end
 
   it 'exposes the  character' do
@@ -12,8 +13,13 @@ describe CharactersController do
   end
 
   describe 'create' do
-    let(:params) { { character: { character_sheet: character_sheet } } }
+    let(:character) { { character_sheet: character_sheet } }
     let(:character_sheet) { double 'character sheet' }
+
+    before do
+      CharacterUploader.stub(:create)
+      subject.stub(:render)
+    end
 
     it 'creates the character in the character uploader' do
       CharacterUploader.should_receive(:create).with(character_sheet)
@@ -21,6 +27,10 @@ describe CharactersController do
       subject.create
     end
 
-    it 'renders the index'
+    it 'renders the index' do
+      subject.should_receive(:render).with(:index)
+
+      subject.create
+    end
   end
 end
