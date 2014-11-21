@@ -11,6 +11,8 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise', '~> 3.2'
 gem 'decent_exposure'
 
+gem 'nokogiri'
+
 gem 'haml'
 # Use unicorn as the app server
 # gem 'unicorn'
