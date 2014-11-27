@@ -5,9 +5,10 @@ require 'decent_exposure'
 
 class CharactersController < ApplicationController
   expose(:character)
+  expose(:characters) { current_user.characters }
 
   def create
-    flash[:notice] = CharacterUploader.create(character_params[:character_sheet])
+    flash[:notice] = CharacterUploader.create(character_params[:character_sheet], current_user)
     render :index
   end
 

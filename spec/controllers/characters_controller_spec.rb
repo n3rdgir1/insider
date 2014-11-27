@@ -13,18 +13,23 @@ describe CharactersController do
     subject.should respond_to(:character)
   end
 
+  it 'exposes the  characters' do
+    subject.should respond_to(:characters)
+  end
+
   describe 'create' do
     let(:character) { { character_sheet: character_sheet } }
     let(:character_sheet) { double 'character sheet' }
     let(:message) { double }
+    let(:current_user) { double }
 
     before do
       CharacterUploader.stub(:create) { message }
-      subject.stub(:render)
+      subject.stub(render: nil, current_user: current_user)
     end
 
     it 'creates the character in the character uploader' do
-      CharacterUploader.should_receive(:create).with(character_sheet)
+      CharacterUploader.should_receive(:create).with(character_sheet, current_user)
 
       subject.create
     end

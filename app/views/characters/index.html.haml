@@ -11,3 +11,6 @@
   %div
     = f.submit "Upload character"
 
+.characters
+  - characters.each do |character|
+    = link_to character.name, character_path(character)
