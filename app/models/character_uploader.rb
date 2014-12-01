@@ -5,7 +5,7 @@ require_relative 'character'
 class CharacterUploader
   def self.create(character_sheet, user)
     begin
-      new(Nokogiri::XML(character_sheet), user).message
+      new(character_sheet, user).message
     rescue
       "Please upload a valid .xml or .dnd4e file"
     end
@@ -13,8 +13,9 @@ class CharacterUploader
 
   attr_accessor :character, :user
 
-  def initialize(doc, user)
+  def initialize(character_sheet, user)
     @user = user
+    doc = Nokogiri::XML(character_sheet)
     create_character doc.xpath("//CharacterSheet/Details").first
   end
 
