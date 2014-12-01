@@ -17,7 +17,7 @@ class CharacterUploader
     @user = user
     doc = Nokogiri::XML(character_sheet)
     details = character_details doc.xpath("//CharacterSheet/Details").first
-    create_character details
+    create_character doc.to_s, details
   end
 
   def message
@@ -30,7 +30,8 @@ class CharacterUploader
     { name: name }
   end
 
-  def create_character(details)
+  def create_character(xml, details)
     @character = Character.create( details.merge( user_id: user.id ) )
+    character.update_attribute(:xml, xml)
   end
 end

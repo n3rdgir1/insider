@@ -8,12 +8,13 @@ describe CharacterUploader do
 
   describe 'creating a character with a valid file' do
     let(:character_sheet) { File.open(File.join(File.dirname(__FILE__), '../', '../', 'fixtures', 'shara.dnd4e')) }
-    let(:character) { double :character_sheet, name: 'Shara' }
+    let(:character) { double :character_sheet, name: 'Shara', update_attribute: nil }
 
     subject { described_class.create(character_sheet, user) }
 
     before do
       Character.stub(:create).and_return(character)
+      Character.stub(:update_attribute).and_return(character)
     end
 
     it 'returns a success message' do
