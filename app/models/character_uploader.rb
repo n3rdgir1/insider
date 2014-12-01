@@ -16,16 +16,21 @@ class CharacterUploader
   def initialize(character_sheet, user)
     @user = user
     doc = Nokogiri::XML(character_sheet)
-    create_character doc.xpath("//CharacterSheet/Details").first
+    details = character_details doc.xpath("//CharacterSheet/Details").first
+    create_character details
   end
 
   def message
     "Successfully uploaded #{character.name}"
   end
 
-  def create_character(details)
-    name = details.xpath('//name').text.strip
+  def character_details(xml)
+    name = xml.xpath('//name').text.strip
 
-    @character = Character.create(name: name, user_id: user.id)
+    { name: name }
+  end
+
+  def create_character(details)
+    @character = Character.create( details.merge( user_id: user.id ) )
   end
 end
